@@ -7,7 +7,10 @@ class SongsController < ApplicationController
   private
 
   def bpm_params
-    min_bpm = params[:bpm].to_f
-    { :min_tempo => min_bpm, :max_tempo => min_bpm + 0.9 }
+    { :min_tempo => bpm, :max_tempo => bpm + 0.9 }
+  end
+
+  def bpm
+    @bpm ||= params[:bpm].to_f
   end
 end

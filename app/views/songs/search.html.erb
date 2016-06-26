@@ -11,8 +11,15 @@
   <% end %>
 
   <% if @songs.present? %>
+    <p>
+      Songs @ <%= @bpm %> bpm
+    </p>
     <% @songs.each do |song| %>
       <a href=<%= song["uri"] %>><%= "#{song["artists"].first["name"]} - #{song["name"]}" %></a></br>
     <% end %>
+  <% elsif @bpm > 0 %>
+    <p>
+      No songs found @ <%= @bpm %> bpm
+    </p>
   <% end %>
 </div>
