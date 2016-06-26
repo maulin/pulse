@@ -5,7 +5,7 @@ class SpotifySearch
 
   def recommendations(params)
     conn = web_api
-    params.merge!({ :seed_genres => "pop" })
+    params.merge!({ :seed_genres => "pop,rock,metal,r-n-b,rock-n-roll" })
     resp = conn.get do |req|
       req.url "/v1/recommendations", params
       req.headers["Authorization"] = "Bearer #{@access_token}"

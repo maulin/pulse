@@ -1,16 +1,18 @@
-<%= form_tag(search_songs_path, :method => 'GET') do %>
-  <p>
-    <%= label_tag :bpm %><br>
-    <%= number_field_tag :bpm %>
-  </p>
+<div class="songsContainer">
+  <%= form_tag(search_songs_path, :method => 'GET') do %>
+    <p>
+      <%= label_tag :bpm %><br>
+      <%= number_field_tag :bpm %>
+    </p>
 
-  <p>
-    <%= submit_tag('Search Songs') %>
-  </p>
-<% end %>
-
-<% if @songs.present? %>
-  <% @songs.each do |song| %>
-    <a href=<%= song["uri"] %>><%= "#{song["artists"].first["name"]} - #{song["name"]}" %></a></br>
+    <p>
+      <%= submit_tag('Search Songs') %>
+    </p>
   <% end %>
-<% end %>
+
+  <% if @songs.present? %>
+    <% @songs.each do |song| %>
+      <a href=<%= song["uri"] %>><%= "#{song["artists"].first["name"]} - #{song["name"]}" %></a></br>
+    <% end %>
+  <% end %>
+</div>
