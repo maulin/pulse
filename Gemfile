@@ -6,6 +6,7 @@ gem 'rails', '4.2.6'
 gem 'uglifier', '>= 1.3.0'
 gem 'faraday'
 gem 'newrelic_rpm'
+gem 'le'
 
 group :development, :test do
   gem 'byebug'
