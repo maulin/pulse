@@ -66,6 +66,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multipart-post (2.0.0)
+    newrelic_rpm (3.16.0.318)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -142,6 +143,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   faraday
+  newrelic_rpm
   rails (= 4.2.6)
   rspec-rails
   spring
