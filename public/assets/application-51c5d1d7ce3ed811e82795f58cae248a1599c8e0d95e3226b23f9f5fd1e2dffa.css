@@ -1,0 +1,68 @@
+.songsContainer {
+  margin: auto;
+  padding: 10px;
+  width: 600px;
+}
+
+@media screen and (max-width: 500px) {
+  .songsContainer {
+    margin: auto;
+    width: 450px;
+  }
+}
+
+.songList-apple {
+  display: none
+}
+
+/* Style the list */
+ul.tab {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  list-style-type: none;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Float the list items side by side */
+ul.tab li {
+  float: left;
+}
+
+/* Style the links inside the list items */
+ul.tab li a {
+  color: black;
+  display: inline-block;
+  font-size: 17px;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+  background-color: #ccc;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
