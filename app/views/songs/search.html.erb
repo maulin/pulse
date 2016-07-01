@@ -1,12 +1,16 @@
 <div class="songsContainer">
   <%= form_tag(search_songs_path, :method => 'GET') do %>
     <%= label_tag :bpm %><br>
-    <%= number_field_tag :bpm %>
+    <%= number_field_tag :bpm, @bpm %>
     <%= submit_tag('Search Songs') %>
   <% end %>
 
   <p>
-    Songs @ <%= @bpm %> bpm
+    Search again if you want different genres<br />
+    <span class='seedGenres'><%= @seed_genres %></span>
+  </p>
+  <p>
+    <span>Songs @ <%= @bpm %> bpm</span>
   </p>
 
   <ul class="tab">

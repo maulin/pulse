@@ -1,11 +1,12 @@
 class SpotifySearch
+  GENRES = File.new("config/spotify_genres.txt").readlines.each { |l| l.chomp! }
+
   def initialize
     get_access_token
   end
 
   def recommendations(params)
     conn = web_api
-    params.merge!({ :seed_genres => "pop,rock,metal,r-n-b,rock-n-roll" })
     resp = conn.get do |req|
       req.url "/v1/recommendations", params
       req.headers["Authorization"] = "Bearer #{@access_token}"
