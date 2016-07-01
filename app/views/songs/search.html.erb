@@ -5,16 +5,55 @@
     <%= submit_tag('Search Songs') %>
   <% end %>
 
-  <% if @songs.present? %>
-    <p>
-      Songs @ <%= @bpm %> bpm
-    </p>
-    <% @songs.each do |song| %>
-      <a href=<%= song["uri"] %>><%= "#{song["artists"].first["name"]} - #{song["name"]}" %></a></br>
-    <% end %>
+  <p>
+    Songs @ <%= @bpm %> bpm
+  </p>
+
+  <ul class="tab">
+    <li><a href="#" class="tablinks active" onclick="showSongs(event, 'spotify')">Spotify</a></li>
+    <li><a href="#" class="tablinks" onclick="showSongs(event, 'apple')">Apple Music</a></li>
+  </ul>
+
+  <% if @spotify_songs.present? %>
+    <div class="songList songList-spotify">
+      <% @spotify_songs.each do |song| %>
+        <a href=<%= song["uri"] %>><%= "#{song["artists"].first["name"]} - #{song["name"]}" %></a></br>
+      <% end %>
+    </div>
   <% elsif @bpm > 0 %>
     <p>
-      No songs found @ <%= @bpm %> bpm
+      No songs found on Soptify @ <%= @bpm %> bpm
+    </p>
+  <% end %>
+
+  <% if @itunes_songs.present? %>
+    <div class="songList songList-apple">
+      <% @itunes_songs.each do |song| %>
+        <a href=<%= song["trackViewUrl"] %>><%= "#{song["artistName"]} - #{song["trackName"]}" %></a></br>
+      <% end %>
+    <div>
+  <% elsif @bpm > 0 %>
+    <p>
+      No songs found on Apple Music @ <%= @bpm %> bpm
     </p>
   <% end %>
 </div>
+
+<%= javascript_tag defer: 'defer' do -%>
+  function showSongs(evt, platform) {
+      var i, tabcontent, tabLinks;
+
+      songList = document.querySelectorAll(".songList");
+      for (i = 0; i < songList.length; i++) {
+        songList[i].style.display = "none";
+      }
+
+      tabLinks = document.querySelectorAll(".tablinks");
+      for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+      }
+
+      document.querySelector('.songList-' + platform).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+<% end -%>

@@ -1,7 +1,9 @@
 class SongsController < ApplicationController
   def search
     spotify_search = SpotifySearch.new
-    @songs = spotify_search.recommendations(bpm_params)
+    itunes_search = ItunesSearch.new
+    @spotify_songs = spotify_search.recommendations(bpm_params)
+    @itunes_songs = itunes_search.get(@spotify_songs)
   end
 
   private
