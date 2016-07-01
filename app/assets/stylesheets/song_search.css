@@ -1,4 +1,12 @@
 .songsContainer {
-  width: 300px;
-  margin: auto
+  margin: auto;
+  padding: 10px;
+  width: 600px;
+}
+
+@media screen and (max-width: 500px) {
+  .songsContainer {
+    margin: auto;
+    width: 450px;
+  }
 }

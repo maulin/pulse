@@ -1,13 +1,8 @@
 <div class="songsContainer">
   <%= form_tag(search_songs_path, :method => 'GET') do %>
-    <p>
-      <%= label_tag :bpm %><br>
-      <%= number_field_tag :bpm %>
-    </p>
-
-    <p>
-      <%= submit_tag('Search Songs') %>
-    </p>
+    <%= label_tag :bpm %><br>
+    <%= number_field_tag :bpm %>
+    <%= submit_tag('Search Songs') %>
   <% end %>
 
   <% if @songs.present? %>
