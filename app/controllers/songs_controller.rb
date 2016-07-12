@@ -25,6 +25,6 @@ class SongsController < ApplicationController
   end
 
   def track_search
-    Keen.publish("search", { :request_ip => request.remote_ip, :bpm => bpm })
+    Keen.publish("search", { :request_ip => request.remote_ip, :bpm => bpm }) if bpm > 0
   end
 end
