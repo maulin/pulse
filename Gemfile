@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'faraday'
 gem 'newrelic_rpm'
 gem 'le'
+gem 'keen'
 
 group :development, :test do
   gem 'byebug'

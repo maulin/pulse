@@ -8,7 +8,7 @@ class ItunesSearch
         params = {
           :term => "#{song["artists"].first["name"]} - #{song["name"]}",
           :entity => "musicTrack",
-            :limit => 1,
+          :limit => 1,
         }
         resp = conn.get do |req|
           req.url "/search", params

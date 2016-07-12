@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  after_action :track_search, :only => :search
+
   def search
     spotify_search = SpotifySearch.new
     itunes_search = ItunesSearch.new
@@ -20,5 +22,9 @@ class SongsController < ApplicationController
 
   def seed_genres
     @seed_genres = SpotifySearch::GENRES.sample(5)
+  end
+
+  def track_search
+    Keen.publish("search", { :request_ip => request.remote_ip, :bpm => bpm })
   end
 end
