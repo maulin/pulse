@@ -13,6 +13,8 @@ class SpotifySearch
   end
 
   def recommendations(params)
+    return [] if params[:min_tempo] == 0
+
     conn = web_api
     resp = conn.get do |req|
       req.url "/v1/recommendations", params
